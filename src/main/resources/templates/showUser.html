@@ -1,0 +1,11 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<p>ID: <span th:text="${user.id}"></span></p>
+<p>First name: <span th:text="${user.firstName}"></span></p>
+<p>Second Name: <span th:text="${user.secondName}"></span></p>
+<p>Age: <span th:text="${user.age}"></span></p>
+<a href="/newDefaultUser">Create default user</a>
+<a href="/addUser">Create custom user</a>
+<a href="/allUsers">Show all users</a>
+</body>
+</html>

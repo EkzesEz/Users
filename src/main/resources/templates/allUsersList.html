@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<title>Users list</title>
+</head>
+<body>
+   <div style="margin-left: 100px;">
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>First name</th>
+               <th>Second name</th>
+               <th>Age</th>
+               <th>Action</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr th:each="user : ${users}">
+               <td th:text=${user.id}>NOT_STATED</td>
+               <td th:text=${user.firstName}>NOT_STATED</td>
+               <td th:text=${user.secondName}>NOT_STATED</td>
+               <td th:text=${user.age}>NOT_STATED</td>
+               <td>
+                  <form th:action="@{deleteUser/{id}(id=${user.id})}"
+                     th:method="delete">
+                     <button class="delete-button" type="submit">Delete</button>
+                  </form>
+                  <form
+                     th:action="@{updateUserForm/{id}(id=${user.id})}">
+                     <button class="edit-button" type="submit">Edit</button>
+                  </form>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <button class="button" onclick="location.href='/newDefaultUser'">Create
+         default user</button>
+      <button class="button" onclick="location.href='/addUser'">Create
+         custom user</button>
+   </div>
+</body>
+</html>
